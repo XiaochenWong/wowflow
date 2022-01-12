@@ -15,7 +15,7 @@ public class Log<P> {
     }
 
 
-    public Event getEvent() {
+    public Event<P> getEvent() {
         return event;
     }
 
@@ -27,18 +27,18 @@ public class Log<P> {
         return time;
     }
 
-    public String toString(){
+    public String toString() {
 
         StringBuilder builder = new StringBuilder();
 
-        if(event.getName().equals(Event.START_EVENT_NAME)){
+        if (event.getName().equals(Event.START_EVENT_NAME)) {
             builder.append(String.format("Flow started at step \"%s\" --- %s", to.getTitle(), time.toString()));
-        }else{
+        } else {
             builder.append(String.format("Flow went to step \"%s\" due to event \"%s\" ---%s",
                     to.getTitle(), event.getName(), time.toString()));
         }
 
-        if(to.isFinal()){
+        if (to.isFinal()) {
             builder.append("(End)");
         }
         return builder.toString();

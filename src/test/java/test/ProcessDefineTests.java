@@ -31,8 +31,9 @@ public class ProcessDefineTests {
                 .build();
 
         final SRPayload payload = new SRPayload(LocalDateTime.now(), "Shawn Wong");
-        process.handle(new Event<>("submit", payload));
-
+        process.handle(new Event<>("yes", payload));
+        process.handle(new Event<>("yes", payload));
+        process.handle(new Event<>("yes", payload));
         process.logs().forEach(System.out::println);
     }
 
